@@ -11,4 +11,10 @@ public class RootController {
 		return "index";
 	}
 
+	
+	@RequestMapping("/start_employee")
+	public String start_employee() {
+		return "start_employee";
+	}
+	
 }
