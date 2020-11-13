@@ -18,7 +18,7 @@
 	<div id="templatemo_menu">
     	<ul>
             <li><a href="/" class="current">Strona główna</a></li>
-            <li><a href="/books">Katalog książek</a></li>
+            <li><a href="/books/page/0">Katalog książek</a></li>
 			<li><a href="/books">Logowanie</a></li>
     	</ul>
     </div>

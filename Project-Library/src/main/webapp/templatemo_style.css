@@ -265,6 +265,8 @@ img {
 	height: 210px;
 	padding: 10px;
 	border: 1px solid #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #templatemo_content_right h1 {
@@ -326,6 +328,7 @@ img {
 
 .product_info p {
 	margin-bottom: 15px;
+
 }
 
 /* end of content */

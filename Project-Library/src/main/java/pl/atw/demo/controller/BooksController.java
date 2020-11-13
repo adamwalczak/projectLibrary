@@ -1,10 +1,13 @@
 package pl.atw.demo.controller;
 
 
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +23,20 @@ public class BooksController {
 
 	@Autowired
 	private BooksRepository repo;
-	
-	@GetMapping
-	public String listBooks(Model model) {
-		List<Book> books = repo.findAll();
+		
+	@GetMapping("/page/{pageN}")
+	public String pageBooks(Model model,
+			@PathVariable("pageN") Integer pageN) {
+		Page<Book> page = repo.findAll(PageRequest.of(pageN, 4));
+		System.out.println(page.getContent());
+		List<Book> books = page.getContent();
+		//page.get
 		model.addAttribute("books", books);
+		model.addAttribute("pages", page);
 		return "books";
 	}
+	
+	
 	
 	@GetMapping("/{bookId}")
 	public String oneBook(Model model,
@@ -35,6 +45,8 @@ public class BooksController {
 		model.addAttribute("book", maybeBook.get());
 		return "book";
 	}
+	
+	
 	
 }
 

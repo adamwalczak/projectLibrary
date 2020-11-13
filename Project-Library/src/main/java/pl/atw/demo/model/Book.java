@@ -111,4 +111,10 @@ public class Book implements Serializable {
 		return order;
 	}
 
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", available=" + available + ", category=" + category + ", description="
+				+ description + ", title=" + title + ", authorBean=" + authorBean + ", orders=" + orders + "]";
+	}
+	
 }
